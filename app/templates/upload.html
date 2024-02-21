@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MP3 Text Extractor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>MP3 Text Extractor</h1>
+
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+
+        {% if text_result %}
+            <h2>Text Extracted:</h2>
+            <p>{{ text_result }}</p>
+        {% endif %}
+
+        <form method="post" enctype="multipart/form-data">
+            <label for="file">Choose an MP3 file:</label>
+            <input type="file" name="file" accept=".mp3">
+            <br>
+            <input type="submit" value="Extract Text">
+        </form>
+    </div>
+</body>
+</html>
